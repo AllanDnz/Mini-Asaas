@@ -2,8 +2,8 @@ CREATE TABLE Customers (
     customer_id INT PRIMARY KEY AUTO_INCREMENT,
     CPF_CNPJ VARCHAR(14) NOT NULL,
     name VARCHAR(100) NOT NULL,
-    address VARCHAR(255)
-    phone VARCHAR(100)
+    address VARCHAR(255),
+    phone VARCHAR(100),
     email VARCHAR(255)
 );
 
@@ -11,10 +11,10 @@ CREATE TABLE Customer_Account (
     customer_account_id INT PRIMARY KEY AUTO_INCREMENT,
     CPF_CNPJ VARCHAR(14) NOT NULL,
     name VARCHAR(100) NOT NULL,
-    address VARCHAR(255)
-    phone VARCHAR(100)
-    email VARCHAR(255)
-    customer_id INT NOT NULL
+    address VARCHAR(255),
+    phone VARCHAR(100),
+    email VARCHAR(255),
+    customer_id INT NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
