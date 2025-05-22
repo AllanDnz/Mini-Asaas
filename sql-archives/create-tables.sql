@@ -1,6 +1,6 @@
-CREATE TABLE Customers (
+CREATE TABLE Customer (
     customer_id INT PRIMARY KEY AUTO_INCREMENT,
-    CPF_CNPJ VARCHAR(14) NOT NULL,
+    cpf_cnpj VARCHAR(14) NOT NULL,
     name VARCHAR(100) NOT NULL,
     address VARCHAR(255),
     phone VARCHAR(100),
@@ -9,7 +9,7 @@ CREATE TABLE Customers (
 
 CREATE TABLE Customer_Account (
     customer_account_id INT PRIMARY KEY AUTO_INCREMENT,
-    CPF_CNPJ VARCHAR(14) NOT NULL,
+    cpf_cnpj VARCHAR(14) NOT NULL,
     name VARCHAR(100) NOT NULL,
     address VARCHAR(255),
     phone VARCHAR(100),
