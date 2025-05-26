@@ -16,7 +16,7 @@ FROM payment p
 JOIN customer_account ca ON p.customer_account_id = ca.id
 WHERE p.status = 'RECEIVED'
 GROUP BY ca.id
-HAVING SUM(p.value) > 1000 AND p.status = 'RECEIVED'
+HAVING SUM(p.value) > 1000
 ORDER BY total_recebido ASC
 LIMIT 20;
 
