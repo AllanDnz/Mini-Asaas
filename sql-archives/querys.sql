@@ -6,7 +6,7 @@ WHERE value > 1000.00;
 --Soma dos valores de cobranças recebidas com a data de criação maior que 2020, agrupadas por tipo de cobrança (billing_type)
 SELECT billing_type, SUM(value) AS total_recebido
 FROM payment
-WHERE YEAR(due_date) > 2020
+WHERE date_created >= '2021-01-01 00:00:00' AND status = 'RECEIVED'
 GROUP BY billing_type;
 
 --Lista de 20 pagadores (customer_account) com valores recebidos maiores que R$ 1.000,00
@@ -14,8 +14,9 @@ GROUP BY billing_type;
 SELECT ca.id AS Identificador_usuario, SUM(p.value) AS total_recebido
 FROM payment p
 JOIN customer_account ca ON p.customer_account_id = ca.id
+WHERE p.status = 'RECEIVED'
 GROUP BY ca.id
-HAVING SUM(p.value) > 1000
+HAVING SUM(p.value) > 1000 AND p.status = 'RECEIVED'
 ORDER BY total_recebido ASC
 LIMIT 20;
 
@@ -23,6 +24,7 @@ LIMIT 20;
 SELECT ca.id AS Identificador_usuario, p.value AS valor_recebido
 FROM payment p
 JOIN customer_account ca ON p.customer_account_id = ca.id
+WHERE p.status = 'RECEIVED'
 GROUP BY ca.id, p.value
 HAVING p.value > 1000
 ORDER BY valor_recebido ASC
